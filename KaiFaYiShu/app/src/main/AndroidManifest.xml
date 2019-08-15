@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.hp.kaifayishu">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--android:hardwareAccelerated="true"-->
+    <!--硬件加速-->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+        <service
+            android:name=".book.BookManagerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+
+        <!-- authorities 唯一标识 -->
+        <!-- permission 访问权限 -->
+        <provider
+            android:name=".book.BookProvider"
+            android:authorities="com.example.hp.kaifayishu.book.provider"
+            android:permission="com.example.hp.BOOK_PROVIDER"
+            android:process=":provider"
+            android:writePermission="com.example.hp.BOOK_PROVIDER.WRITE" />
+
+        <activity android:name=".book.BookManagerActivity" />
+        <activity
+            android:name=".OtherProcessActivity"
+            android:process=":remote" />
+
+        <service
+            android:name=".tcp.TCPServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.hp.tcp.TcpServerService" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".widget.MyAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info" />
+
+            <intent-filter>
+                <action android:name="com.example.hp.kaifayishu.action.CLICK" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".tcp.TcpClientActivity" />
+        <activity android:name=".DragViewActivity" />
+        <activity android:name=".widget.ShowViewActivity" />
+
+        <receiver android:name=".widget.NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info" />
+        </receiver>
+
+        <activity android:name=".activity.ActivityA" />
+        <activity android:name=".activity.ActivityB" />
+        <activity android:name=".window.WindowActivity" />
+        <activity android:name=".image.ImageActivity"></activity>
+    </application>
+
+</manifest>

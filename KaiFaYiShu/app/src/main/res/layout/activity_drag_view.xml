@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DragViewActivity"
+    android:id="@+id/rl_drag">
+
+    <com.example.hp.kaifayishu.widget.DragButton
+        android:id="@+id/btn_drag"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="Drag"
+        android:layout_centerInParent="true"
+        android:textAllCaps="false"
+        android:imeActionId="0"
+        style="?attr/selectableItemBackgroundBorderless" />
+
+    <com.example.hp.kaifayishu.widget.DragView
+        android:id="@+id/drag_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#FEFEFE"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btn_drag_view_1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/btn_drag_view_2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/btn_drag_view_3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:layout_centerInParent="true"/>
+
+        <com.example.hp.kaifayishu.widget.SmallButton
+            android:id="@+id/btn_drag_view_sub"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/colorAccent"
+            android:layout_centerInParent="true" />
+
+
+    </com.example.hp.kaifayishu.widget.DragView>
+
+</RelativeLayout>
