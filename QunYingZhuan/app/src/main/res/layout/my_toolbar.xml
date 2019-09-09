@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--可获取焦点、触摸焦点-->
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/colorAccent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/app_name" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_small"
+        android:contentDescription="凉凉" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="嗷嗷"/>
+
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/cl_main"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_main_hide"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:text="小按钮"/>
+
+            <Button
+                android:id="@+id/btn_main_out"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:text="弹出"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <com.example.hp.qunyingzhuan.widget.ThreeModelView
+            android:id="@+id/threeModelView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary" />
+
+        <com.example.hp.qunyingzhuan.widget.FlashText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="一排闪动的字"
+            android:textSize="18sp" />
+
+        <com.example.hp.qunyingzhuan.widget.TopBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:leftBackground="#949494"
+            app:leftText="左边按钮"
+            app:leftTextColor="@color/colorPrimary"
+            app:rightBackground="#949494"
+            app:rightText="右边按钮"
+            app:rightTextColor="@color/colorPrimary"
+            app:title="自定义标题栏"
+            app:titleTextColor="@color/colorAccent"
+            app:titleTextSize="6sp" />
+
+        <Button
+            android:id="@+id/btn_to_scroll_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="To ScrollActivity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_listview_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To  ListViewActivity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_slide_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To SlideActivity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_dragview_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_selector"
+            android:text="To DragViewActivity"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_image_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_selector"
+            android:text="To ImageViewActivity"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_surface_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To SurfaceActivity"
+            android:background="@drawable/btn_selector"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_open_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To Open A Btn"
+            android:background="@drawable/btn_selector"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="吃鸭儿嘛你"
+            android:background="@drawable/btn_selector"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:visibility="gone"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_bmob_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To BmobActivity"
+            android:background="@drawable/btn_selector"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_to_transition_a_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To TransitionAActivity"
+            android:background="@drawable/btn_selector"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="2dp"
+            android:textAllCaps="false" />
+
+        <com.example.hp.qunyingzhuan.widget.intercept.ParentRelativeLayout
+            android:id="@+id/rl_parent"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#949494">
+
+            <com.example.hp.qunyingzhuan.widget.intercept.SecondParentRelativeLayout
+                android:id="@+id/rl_second_parent"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:background="#444444">
+
+                <com.example.hp.qunyingzhuan.widget.intercept.ChildButton
+                    android:id="@+id/btn_child"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:background="#ffffff"
+                    android:text="最里层的按钮"
+                    android:textColor="#000000" />
+
+            </com.example.hp.qunyingzhuan.widget.intercept.SecondParentRelativeLayout>
+
+        </com.example.hp.qunyingzhuan.widget.intercept.ParentRelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
