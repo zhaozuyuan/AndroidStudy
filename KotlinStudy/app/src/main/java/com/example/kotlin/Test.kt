@@ -1,50 +1,97 @@
 package com.example.kotlin
 
-import java.lang.RuntimeException
-import java.lang.StringBuilder
+import android.util.ArrayMap
+import android.util.Log
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
- * create by zuyuan on 2019/5/16
+ * create by zuyuan on 2019/11/14
  */
-fun main(arg: Array<String> ) {
-    for (i in 0..10) print("$i ")
-    println()
+public class Test {
+    val str = "小明"
+    var varStr = "小红"
+    val value = 123
+    val valueObj: Int = 123456
 
-    //不包含10
-    for (i in 0 until 10) print("$i ")
-    println()
+    fun changeName() = run { varStr = str }
 
-    //递增2
-    for (i in 0..10 step  2) print("$i ")
-    println()
+    fun aVoid(str: String) = Log.d("TAG", str)
 
-    for (i in 10 downTo 0 step 2) print("$i ")
-    println()
-
-    var i = 1
-    out@ for (j in 0..100)
-        for (t in 0..100) {
-            i = i + t
-            if (i >= 50) break@out
-        }
-    println("--->\"${i}\"")
-
-    when(i) {
-        0 -> throw RuntimeException("--->")
-        1, 2 -> println("--->")
-        else -> println("--->$i")
+    fun createMapWithValue(): Map<String, Int> {
+        return mapOf(Pair("a", value))
     }
 
-    var str: String ?= null
-    str.isNullOrEmpty()
+    fun test() {
+        val strArray: Array<String?> = arrayOfNulls(6)
+        strArray[0] = "123"
 
-    val s1 = "sss"
-    val s2 = "sss"
-    val s3 : String = StringBuilder("sss").toString()
+        Log.d("TAG", "美元\$${strArray[0]}")
 
-    println(s1 === s2)
-    println(s1 == s2)
-    println(s1 === s3)
+        strArray.forEach { println(it) }
 
+        val strList: ArrayList<String?> = arrayListOf("你好")
+        strList.addAll(strArray)
 
+        val strMutable: MutableList<String?> = ArrayList()
+        strMutable.addAll(strArray)
+
+        val strMap: MutableMap<Int, String> = TreeMap()
+        strMap[1] = "123"
+
+        var result: String = if (strArray[0] == "123") {
+            println("compare")
+            "456"
+        } else {
+            "789"
+        }
+
+        result = when (strArray[0]) {
+                "123"-> "456${strArray[0]}"
+                else -> "789"
+            }
+
+        val list: List<String?> = listOf()
+        if (list is ArrayList) {
+            list.add("1")
+        }
+
+        list as ArrayList
+        list.add("1")
+
+        val judge: Boolean = list[0].isNullOrEmpty()
+        val judge2: Boolean = if (list[0].isNullOrEmpty()) false else list[0]!!.isBlank()
+
+        val i: Int = getID("name", "as", like = "篮球")
+    }
+
+    private fun getID(name: String,  vararg args: String?, age: Int = -1, like: String = ""): Int = 123
+
+    private fun <T> genericFun(): T? = null
+
+    private fun transfer() {
+        inlineFun("")
+    }
+
+    private inline fun inlineFun(str: String) {
+        println(str)
+        printfData(str)
+    }
+
+    private fun printfData(str: String) {
+        println(str)
+    }
+
+    private fun templateFun(a: Int, b: Int) = a >= b
+
+    private fun transferTemplateFun(compare: (a: Int, b: Int) -> Boolean) {
+        compare(1, 2)
+    }
+
+    private fun tansferStart() {
+        transferTemplateFun(this::templateFun)
+        transferTemplateFun({a, b -> templateFun(a, b)})
+        transferTemplateFun{a, b -> templateFun(a, b)}
+
+    }
 }
