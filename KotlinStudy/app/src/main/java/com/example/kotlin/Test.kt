@@ -1,18 +1,37 @@
 package com.example.kotlin
 
-import android.util.ArrayMap
 import android.util.Log
 import java.util.*
 import kotlin.collections.ArrayList
 
 /**
  * create by zuyuan on 2019/11/14
+ * 若使用 主构造函数 则必须调用主构造函数
  */
-public class Test {
+class Test{
+
+    val mName: String = ""
+
+    var age: Int = 0
+
+    constructor(name: String, age: Int) : this("", 0, 0){
+        println("g1")
+    }
+
+    constructor(name: String, age: Int, age1: Int) {
+        println("g2")
+    }
+
+    init {
+        println("初始化操作")
+    }
+
     val str = "小明"
     var varStr = "小红"
     val value = 123
     val valueObj: Int = 123456
+
+    private var s: String? = null
 
     fun changeName() = run { varStr = str }
 
@@ -39,12 +58,7 @@ public class Test {
         val strMap: MutableMap<Int, String> = TreeMap()
         strMap[1] = "123"
 
-        var result: String = if (strArray[0] == "123") {
-            println("compare")
-            "456"
-        } else {
-            "789"
-        }
+        var result: String?
 
         result = when (strArray[0]) {
                 "123"-> "456${strArray[0]}"
@@ -73,6 +87,7 @@ public class Test {
         inlineFun("")
     }
 
+    /* inline 实现内联函数 在编译器会将该方法代码复制调用者里去 减少运行时栈帧的创建 */
     private inline fun inlineFun(str: String) {
         println(str)
         printfData(str)

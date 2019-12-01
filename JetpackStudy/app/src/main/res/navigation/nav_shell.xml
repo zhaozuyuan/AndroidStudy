@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_shell"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.jetpack.navigation.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_childFragment"
+            app:destination="@id/childFragment" />
+        <!--设置跳转目的地-->
+        <action
+            android:id="@+id/action_home_to_parent"
+            app:enterAnim="@anim/enter_anim"
+            app:exitAnim="@anim/exit_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:destination="@id/parentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/childFragment"
+        android:name="com.example.jetpack.navigation.child.ChildFragment"
+        android:label="fragment_child"
+        tools:layout="@layout/fragment_child" >
+        <action
+            android:id="@+id/action_childFragment_to_myDialogFragment"
+            app:destination="@id/myDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/parentFragment"
+        android:name="com.example.jetpack.navigation.parent.ParentFragment"
+        android:label="fragment_parent"
+        tools:layout="@layout/parent_fragment">
+        <action
+            android:id="@+id/action_parent_to_child"
+            app:destination="@id/childFragment"
+            app:enterAnim="@anim/enter_anim"
+            app:exitAnim="@anim/exit_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/myDialogFragment"
+        android:name="com.example.jetpack.navigation.dialog.MyDialogFragment"
+        android:label="dialog_fragment"
+        tools:layout="@layout/dialog_fragment" >
+        <argument
+            android:name="dialogArg"
+            app:argType="string"
+            android:defaultValue="@null"/>
+    </fragment>
+
+</navigation>

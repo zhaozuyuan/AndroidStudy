@@ -12,6 +12,7 @@ fun appendString(tag: String, vararg otherInfo: Any?): String {
     return strBuilder.toString()
 }
 
+/* tailrec 关键字能够在编译时优化方法的递归实现 提升执行效率 */
 tailrec fun tailrecFun(str: String) {
     println(str)
     tailrecFun(str)

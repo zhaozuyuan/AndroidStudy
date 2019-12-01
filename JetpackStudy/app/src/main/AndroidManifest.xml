@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".navigation.ShellActivity"></activity>
         <activity android:name=".data_binding.DataBindingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
